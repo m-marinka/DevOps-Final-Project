@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy todir="/home/mari/Desktop/git-project-covid19/react-springboot-mysql/target/classes/public">
+    <fileset dir="/home/mari/Desktop/git-project-covid19/react-springboot-mysql/frontend/build"/>
+  </copy>
+</target>
+</project>
