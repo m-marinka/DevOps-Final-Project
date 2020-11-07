@@ -1,2 +1,2 @@
-[dev]
+[devserver]
 172.31.15.226 ansible_user=devuser
