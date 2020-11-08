@@ -44,7 +44,7 @@ pipeline {
         
         stage('Docker Deploy'){
             steps{
-                ansiblePlaybook credentialsId: 'test-connection', become: true, becomeUser: 'devuser', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+                ansiblePlaybook credentialsId: 'test-connection', become: true, becomeUser: 'devuser', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml, sudo: true, sudoUser: 'devuser'
             }
         }
     }
