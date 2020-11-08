@@ -12,10 +12,5 @@
     - name: install docker-py python module
       shell: "sudo pip install docker-py"
     - name: start the container
-      docker_container:
-        name: docker-spring-boot
-        image: "mmarinka/docker-spring-boot:latest"
-        state: started
-        published_ports:
-          - 0.0.0.0:8080:8080
-          - 0.0.0.0:3306:3306
+      shell: "docker container run mmarinka/docker-spring-boot:latest"
+      
