@@ -26,7 +26,7 @@ pipeline {
         
         stage('Docker Build'){
             steps{
-                sh "docker build . -f Dockerfile -t mmarinka/docker-spring-boot.jar "
+                sh "docker build . -f Dockerfile -t mmarinka/docker-spring-boot "
                 sh "docker images"
             }
         }
@@ -38,7 +38,7 @@ pipeline {
     // some block
     
             }
-                sh "docker push mmarinka/docker-spring-boot.jar:latest "
+                sh "docker push mmarinka/docker-spring-boot:latest "
             }
         }
         
