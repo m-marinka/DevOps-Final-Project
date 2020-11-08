@@ -12,5 +12,5 @@
     - name: install docker-py python module
       shell: "sudo pip install docker-py"
     - name: start the container
-      shell: "docker container run -p 8085:8085 mmarinka/docker-spring-boot:latest"
+      shell: "docker container run -p 8080:8080 mmarinka/docker-spring-boot:latest"
       
