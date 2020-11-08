@@ -1,6 +1,7 @@
 ---
 - hosts: dev
-  become: True
+  become: yes
+  become_user: devuser
   tasks:
     - name: install python pip
       apt: 
@@ -18,4 +19,3 @@
         published_ports:
           - 0.0.0.0:8080:8080
           - 0.0.0.0:3306:3306
-          - 0.0.0.0:8085:8085
