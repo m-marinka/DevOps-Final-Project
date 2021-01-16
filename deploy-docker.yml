@@ -3,14 +3,29 @@
   become: yes
   become_user: devuser
   tasks:
+    - name: Update aptitude repo and cache
+      apt: update_cache=yes 
     - name: install python pip
-      shell: "sudo apt install python-pip"
+      apt:
+        name: python-pip
     - name: Install docker
-      shell: "sudo apt install docker"
+      apt:
+        name: docker
+        state: present
     - name: start docker
-      shell: "sudo service docker start"
+      secvice:
+        name: docker
+        state: started
+        enabled: yes
     - name: install docker-py python module
-      shell: "sudo pip install docker-py"
+      pip:
+        name: docker-py
+        state: present
     - name: start the container
-      shell: "docker container run -it --name=docker-spring-boot --rm -p 8080:8080 mmarinka/docker-spring-boot:latest"
+      docker_container:
+        name: docker-spring-boot
+        image: mmarinka/docker-spring-boot:latest
+        state: started
+        published_ports:
+         - 0.0.0.0:8080:8080
       
