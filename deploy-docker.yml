@@ -13,7 +13,7 @@
         name: docker
         state: present
     - name: start docker
-      secvice:
+      service:
         name: docker
         state: started
         enabled: yes
