@@ -41,6 +41,12 @@ pipeline {
                 sh "docker push mmarinka/docker-spring-boot:latest "
             }
         }
+        
+                stage('Docker Deploy'){
+            steps{
+                ansiblePlaybook credentialsId: 'test-connection', become: true, becomeUser: 'devuser', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+            }
+        }
     }
         
 }
