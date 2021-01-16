@@ -1,10 +1,20 @@
-
 ---
-- name: Connection testing
-  hosts: dev
-  become: yes
-
+- hosts: dev
+  become: True
   tasks:
-
-  - name: Ping server
-    ping:
+    - name: install python pip
+      apt: update_cache=yes name=python-pip
+    - name: Install docker
+      apt:
+        name: docker.io
+        state: present
+    - name: start docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+        use: service
+    - name: install docker-py python module
+      pip:
+        name: docker-py
+        state: present
