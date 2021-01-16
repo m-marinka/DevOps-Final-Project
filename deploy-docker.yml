@@ -1,12 +1,11 @@
 ---
 - hosts: dev
-  become: yes
+  become: true
   become_user: devuser
   tasks:
-    - name: Update aptitude repo and cache
-      apt: update_cache=yes 
     - name: install python pip
       apt:
+        update_cache: yes 
         name: python-pip
     - name: Install docker
       apt:
