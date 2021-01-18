@@ -45,7 +45,9 @@ pipeline {
                 stage('Docker Deploy'){
             steps{
                 ansiblePlaybook become: true, becomeUser: 'devuser', credentialsId: 'run_ansible_plaubook', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+                sh "sudo reboot"
             }
+                    
         }
     }
         
